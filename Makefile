@@ -16,7 +16,6 @@ u-boot:
 	git clone git://git.denx.de/u-boot.git
 
 u-boot/u-boot: | u-boot gcc-linaro-7.2.1-2017.11-i686_aarch64-linux-gnu
-	
 	./build-uboot.sh
 
 .PHONY: prepare
