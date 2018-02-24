@@ -1,0 +1,4 @@
+gcc-linaro*
+u-boot
+*.img
+*.sw*
