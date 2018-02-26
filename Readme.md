@@ -20,7 +20,16 @@ For U-Boot
 
 `make run-a9`
 
-Right now this will just dump you into the u-boot console. However, the raspbian image is loaded on the first and only disk (see [launch.sh](launch.sh)).
+Right now this will just dump you into the u-boot console. You will need to execute the following commands ftw.
+
+```
+setenv ker_addr_r 0x60008000
+setenv ftd_addr_r 0x61008000
+fatload mmc 0:1 ${ker_addr_r} uImage
+fatload mmc 0:1 ${ftd_addr_r} vexpress-v2p-ca9.dtb
+setenv bootargs "earlyprintk mem=1024M maxcpus=1 console=ttyAMA0 root=/dev/mmcblk0p2 rw rootwait panic=10"
+bootm ${ker_addr_r} - ${ftd_addr_r}
+```
 
 ## Terminating
 
