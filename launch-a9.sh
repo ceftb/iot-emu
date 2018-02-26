@@ -16,7 +16,7 @@ else
   qemu-system-arm \
     -machine vexpress-a9 \
     -cpu cortex-a9 \
-    -kernel zImage \
+    -kernel ./linux-stable/arch/arm/boot/zImage \
     -dtb ./linux-stable/arch/arm/boot/dts/vexpress-v2p-ca9.dtb \
     -m 1G \
     -nographic \
