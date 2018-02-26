@@ -1,4 +1,9 @@
 gcc-linaro*
 u-boot
+uboot-a*
 *.img
 *.sw*
+*.dtb
+mnt*
+zImage
+linux-stable

@@ -1,0 +1,10 @@
+0x00000000
+
+0x2c000000 - GIC (global interrupt controller)
+
+
+0x60000000 ~ memory base address
+[  4 KiB ]
+0x60008000 - kernel_load 
+[ 16 MiB ]
+0x61008000 - devtree_load
