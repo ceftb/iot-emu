@@ -7,8 +7,23 @@ This repository contains code in support of iot device emulation for ceftb. Curr
 - scripts to launch qemu-aarch64:vexpress-a15:coretex-a53 with u-boot bootloader
 
 ## Building
+Before building, make sure the following dependencies are installed. The process has been tested on 64-bit Ubuntu 16.04 multiarch system.
 
-`make prepare-a9`
+First make sure you can run a 32-bit executable file on a 64-bit multi-architecture Ubuntu system.
+- sudo dpkg --add-architecture i386
+- sudo apt-get update
+- sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386
+- sudo apt-get install multiarch-support
+
+Next install GNU bc arbitrary precision calculator language
+- sudo apt-get install bc
+
+Next install companion tools for Das U-Boot bootloader 
+- sudo apt-get install u-boot-tools
+
+Now you can run the following make command for the building process
+
+`- make prepare-a9`
 
 ## Running
 
