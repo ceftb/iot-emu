@@ -1,0 +1,7 @@
+Reboot: have each of the images that runs on your devices have an ssh key that you can use to ssh-exec a reboot command 
+Imaging: when a 'setup' command comes through with a specific operating system, update your dnsmasq config to serve the requested OS to the appropriate device this is keyed off of MAC address. When the dnsmasq setup has completed reboot the device in question.
+This will boot into u-boot, which should be configured to tftp-boot as its first option. What tftp-boot means is that it sends a dhcp request out with a special option called the bootp option set
+your dnsmasq will respond to that dhcp request with a) an ip address and b) the tftp address of an image to load the u-boot tftpboot implementation will then load the image from the address provided by dnsmasq over tftp
+Dnsmasq is capable of serving images over tftpboot itself (or look into tftpd) 
+As u-boot downloads the tftp image it is also writing it into memory; can both write the disk resident part of the os (read: the root filesystem) on the the non-volatile storage device (mmc0 in our case) and the kernel in to the appropriate place in physical memory (documented in make file 0x60008000)
+Instruct u-boot to jump to the place in memory where you loaded the kernel and set the kernel command line argument (uboot calls this `bootargs` to point at the partition you just wrote onto the mmc, probably called /dev/mmcblk0p2)
