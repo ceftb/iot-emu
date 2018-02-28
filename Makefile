@@ -1,4 +1,15 @@
 
+OS := $(shell lsb_release -is)
+prereqs:
+ifeq ($(OS), Ubuntu)
+	sudo dpkg --add-architecture i386
+	sudo apt-get update 
+	sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 multiarch-support bc u-boot-tools
+else
+	echo "Unsupported"
+	exit 1
+endif
+
 ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ###
 ### Raspbian Image
