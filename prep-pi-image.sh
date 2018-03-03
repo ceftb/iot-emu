@@ -31,7 +31,7 @@ sudo umount -l p2
 sudo losetup -d ${loopdev}
 
 # make a qcow2 image from the raw image
-qemu-img convert -O qcow2 pi.img piq.img
+qemu-img convert -c -O qcow2 pi.img piq.img
 
 cp piq.img ../
 
