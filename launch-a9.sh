@@ -10,6 +10,7 @@ then
     -cpu cortex-a9 \
     -kernel uboot-a9 \
     -m 1G \
+    -serial telnet:localhost:4000,server,nowait,nodelay \
     -nographic \
     -sd piq.img
 else
@@ -19,10 +20,14 @@ else
     -kernel ./linux-stable/arch/arm/boot/zImage \
     -dtb ./linux-stable/arch/arm/boot/dts/vexpress-v2p-ca9.dtb \
     -m 1G \
+    -serial telnet:localhost:4000,server,nowait,nodelay \
     -nographic \
     -append "earlyprintk mem=1024M maxcpus=1 console=ttyAMA0 root=/dev/mmcblk0p2 rw rootwait panic=10" \
     -sd piq.img
 fi
+
+#-chardev tty,id=pts47,path=/dev/pts/11 \
+#-device isa-serial,chardev=pts47 \
   
 ###############################################################################
 # u-boot instructions
