@@ -11,7 +11,7 @@ cd img
 
 # mount the to partitions in the pi image
 mkdir p1 p2
-loopdev=`losetup -f`
+loopdev=`sudo losetup -f`
 sudo losetup -f -P pi.img
 sudo mount -o sync ${loopdev}p1 p1
 sudo mount -o sync ${loopdev}p2 p2
