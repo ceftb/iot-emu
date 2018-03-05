@@ -73,13 +73,13 @@ prepare-a9: uboot-a9 raspbian_lite_latest.img piq.img
 
 .PHONY: install-a9
 install-a9:
-	sudo cp piq.img /var/rvn/img/raspbian:a9.qcow2
+	sudo cp img/piq.img /var/rvn/img/raspbian:a9.qcow2
 	sudo cp u-boot.img /var/rvn/kernel/u-boot:a9
 	sudo cp linux-stable/arch/arm/boot/zImage /var/rvn/kernel/zImage:a9
 
 .PHONY: push-a9
 push-a9:
-	scp piq.img mirror.deterlab.net:/space/rvn/img/raspbian:a9.qcow2
+	scp img/piq.img mirror.deterlab.net:/space/rvn/img/raspbian:a9.qcow2
 	scp u-boot.img mirror.deterlab.net:/space/rvn/kernel/u-boot:a9
 	scp linux-stable/arch/arm/boot/zImage mirror.deterlab.net:/space/rvn/kernel/zImage:a9
 

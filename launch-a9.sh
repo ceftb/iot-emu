@@ -5,8 +5,10 @@ cp u-boot/u-boot u-boot.img
 
 if [[ -z $RAWBOOT ]] 
 then
+  # to dump the qemu specific dtb
+  #-machine vexpress-a9,accel=tcg,usb=off,dumpdtb=vx9.dtb
   qemu-system-arm \
-    -machine vexpress-a9,accel=tcg,usb=off\
+    -machine vexpress-a9,accel=tcg,usb=off \
     -cpu cortex-a9 \
     -kernel uboot-a9 \
     -m 1G \
